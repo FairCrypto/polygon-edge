@@ -486,9 +486,20 @@ func (t *Transition) apply(msg *types.Transaction) (*runtime.ExecutionResult, er
 	remaining := new(big.Int).Mul(new(big.Int).SetUint64(result.GasLeft), gasPrice)
 	txn.AddBalance(msg.From, remaining)
 
-	// pay the coinbase
-	coinbaseFee := new(big.Int).Mul(new(big.Int).SetUint64(result.GasUsed), gasPrice)
-	txn.AddBalance(t.ctx.Coinbase, coinbaseFee)
+	// pay the coinbase and burn 50%
+	coinbaseFee := new(big.Int).Mul(new(big.Int).SetUint64(result.GasUsed), msg.GasPrice)
+	burnFee := coinbaseFee.Rsh(coinbaseFee, 1)
+	coinbaseFee.Sub(coinbaseFee, burnFee)
+
+	t.state.AddBalance(t.ctx.Coinbase, coinbaseFee)
+	t.state.AddBalance(types.ZeroAddress, burnFee)
+
+	t.logger.Debug(
+		"burned 50% of the transaction fee",
+		"coinbaseFee", coinbaseFee,
+		"burnFee", burnFee,
+		"coinbaseAddress", t.ctx.Coinbase,
+	)
 
 	// return gas to the pool
 	t.addGasPool(result.GasLeft)
