@@ -1,31 +1,18 @@
+X1 is a simple, fast, and secure EVM-compatible network for the next generation of decentralized applications powered by Polygon Edge.
 
-![Banner](.github/banner.jpg)
-[![codecov](https://codecov.io/gh/0xPolygon/polygon-edge/branch/develop/graph/badge.svg?token=PXEADRC1IW)](https://codecov.io/gh/0xPolygon/polygon-edge)
-## Polygon Edge
+## Run Full Node
 
-Polygon Edge is a modular and extensible framework for building Ethereum-compatible blockchain networks.
+```shell
+# Download and extract the latest release from https://github.com/FairCrypto/polygon-edge/releases
+wget https://github.com/FairCrypto/polygon-edge/releases/download/v0.6.3-gas2/polygon-edge_0.6.3-gas2_linux_amd64.tar.gz
+tar xvf polygon-edge_0.6.3-gas2_linux_amd64.tar.gz
 
-To find out more about Polygon, visit the [official website](https://polygon.technology/).
+# Initialize data folders for IBFT and generate validator keys
+polygon-edge secrets init --data-dir data
 
-WARNING: This is a work in progress so architectural changes may happen in the future. The code has not been audited yet, so please contact [Polygon Edge team](mailto:edge@polygon.technology) if you would like to use it in production.
+# Download genesis file
+wget https://x1-devnet.s3.us-west-2.amazonaws.com/genesis.json
 
-## Documentation 📝
-
-If you'd like to learn more about the Polygon Edge, how it works and how you can use it for your project,
-please check out the **[Polygon Edge Documentation](https://docs.polygon.technology/docs/edge/overview/)**.
-
----
-
-Copyright 2022 Polygon Technology
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+# Start the node
+./polygon-edge server --data-dir ./data --chain genesis.json --grpc-address :10000 --libp2p :10001 --jsonrpc :10002
+```
