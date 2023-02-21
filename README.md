@@ -13,8 +13,8 @@ tar xvf polygon-edge_0.6.3-gas2_linux_amd64.tar.gz
 polygon-edge secrets init --data-dir data
 
 # Download genesis file
-wget https://x1-devnet.s3.us-west-2.amazonaws.com/genesis.json
+wget https://x1-devnet.s3.us-west-2.amazonaws.com/genesis.jso
 
 # Start the node
-./polygon-edge server --data-dir ./data --chain genesis.json --grpc-address :10000 --libp2p :10001 --jsonrpc :10002
+./polygon-edge server --data-dir ./data --chain genesis.json --jsonrpc 0.0.0.0:8545
 ```
