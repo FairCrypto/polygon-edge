@@ -2,6 +2,15 @@
 
 X1 is a simple, fast, and secure EVM-compatible network for the next generation of decentralized applications powered by Polygon Edge.
 
+## Explore the Network
+
+- [X1 Explorer](https://explorer.x1-devnet.xen.network/)
+
+## RPC Endpoints
+
+- https://x1-devnet.xen.network/
+- wss://x1-devnet.xen.network/ws
+
 ## Run Full Node
 
 ```shell
@@ -18,3 +27,4 @@ wget https://x1-devnet.s3.us-west-2.amazonaws.com/genesis.jso
 # Start the node
 ./polygon-edge server --data-dir ./data --chain genesis.json --jsonrpc 0.0.0.0:8545
 ```
+
