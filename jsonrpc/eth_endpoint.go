@@ -9,7 +9,6 @@ import (
 	"github.com/umbracle/fastrlp"
 
 	"github.com/0xPolygon/polygon-edge/chain"
-	"github.com/0xPolygon/polygon-edge/helper/common"
 	"github.com/0xPolygon/polygon-edge/helper/progress"
 	"github.com/0xPolygon/polygon-edge/state"
 	"github.com/0xPolygon/polygon-edge/state/runtime"
@@ -380,11 +379,8 @@ func (e *Eth) GetStorageAt(
 // GasPrice returns the average gas price based on the last x blocks
 // taking into consideration operator defined price limit
 func (e *Eth) GasPrice() (interface{}, error) {
-	// Fetch average gas price in uint64
-	avgGasPrice := e.store.GetAvgGasPrice().Uint64()
-
-	// Return --price-limit flag defined value if it is greater than avgGasPrice
-	return argUint64(common.Max(e.priceLimit, avgGasPrice)), nil
+	// Return --price-limit flag defined value
+	return argUint64(e.priceLimit), nil
 }
 
 // Call executes a smart contract call using the transaction object data
