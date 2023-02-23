@@ -9,11 +9,11 @@ author:
 plugins:
   - jekyll-remote-theme
   - jekyll-titles-from-headings
-remote_theme: jekyll/minima
+remote_theme: FairCrypto/minima
 minima:
   skin: auto
   social_links:
-    - { platform: github,  user_url: "https://github.com/XEN-crypto" }
+    - { platform: github,  user_url: "https://github.com/FairCrypto/x1" }
     - { platform: twitter, user_url: "https://twitter.com/XEN_Crypto" }
     - { platform: telegram, user_url: "https://t.me/XENCryptoTalk" }
     - { platform: youtube, user_url: "https://m.youtube.com/channel/UCiw5nyHHt9BPHvoRbcGNehA/playlists" }
