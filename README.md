@@ -1,4 +1,4 @@
-# X1 by Xen Crypto
+# X1 Network
 
 X1 is a simple, fast, and secure EVM-compatible network for the next generation of decentralized applications powered by Polygon Edge.
 
@@ -27,4 +27,3 @@ wget https://x1-devnet.s3.us-west-2.amazonaws.com/genesis.jso
 # Start the node
 ./polygon-edge server --data-dir ./data --chain genesis.json --jsonrpc 0.0.0.0:8545
 ```
-
