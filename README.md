@@ -19,7 +19,7 @@ wget https://github.com/FairCrypto/x1/releases/download/v0.6.3-gas2/polygon-edge
 tar xvf polygon-edge_0.6.3-gas2_linux_amd64.tar.gz
 
 # Initialize the data folders for IBFT and generate validator keys
-polygon-edge secrets init --data-dir data
+./polygon-edge secrets init --data-dir data
 
 # Download the genesis file
 wget https://x1-devnet.s3.us-west-2.amazonaws.com/genesis.json
