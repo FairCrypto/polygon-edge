@@ -25,7 +25,8 @@ We recommend starting with 300GB of disk space to be safe.
 
 ### Install
 
-> Quick start a full node and run in the foreground
+Quick start a full node and run in the foreground
+
 ```shell
 # Install dependencies (ex: ubuntu)
 sudo apt-get update
@@ -115,6 +116,7 @@ journalctl -u polygon-edge -f
 Please contact Faircrypto to get your validator added to the network.
 
 > Find your validator key
+
 ```shell
 polygon-edge ibft status
 ```
