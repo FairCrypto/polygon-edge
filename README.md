@@ -25,7 +25,7 @@ We recommend starting with 300GB of disk space to be safe.
 
 ### Install
 
-Quick start a full node and run in the foreground
+> Quick start a full node and run in the foreground
 
 ```shell
 # Install dependencies (ex: ubuntu)
@@ -122,6 +122,7 @@ polygon-edge ibft status
 ```
 
 > Vote to add your validator to the network
+
 ```shell
 VALIDATOR_KEY=$(polygon-edge ibft status --json | jq -r '.validator_key')
 polygon-edge ibft propose --addr ${VALIDATOR_KEY} --vote auth
