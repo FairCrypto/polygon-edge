@@ -9,7 +9,7 @@ COPY . .
 
 RUN go build -o polygon-edge main.go
 
-FROM alpine:latest AS runner
+FROM alpine:3.18.3 AS runner
 
 RUN apk --no-cache add ca-certificates jq
 
